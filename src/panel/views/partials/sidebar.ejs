@@ -1,0 +1,11 @@
+<aside class="sidebar hidden md:block w-64 min-h-screen border-r">
+  <div class="p-4">
+    <nav class="space-y-1">
+      <a href="/dashboard" class="nav-link <%= (typeof currentPath!=='undefined' && currentPath==='/dashboard')?'active':'' %>">📊 Tableau de bord</a>
+      <a href="/guilds" class="nav-link <%= (typeof currentPath!=='undefined' && currentPath.startsWith('/guilds'))?'active':'' %>">🛡️ Serveurs</a>
+      <% if (isAdmin) { %>
+        <a href="/admin/users" class="nav-link <%= (typeof currentPath!=='undefined' && currentPath.startsWith('/admin'))?'active':'' %>">⚙️ Administration</a>
+      <% } %>
+    </nav>
+  </div>
+</aside>

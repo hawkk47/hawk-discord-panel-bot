@@ -1,0 +1,5 @@
+<%
+const tok = typeof csrfToken === 'function' ? csrfToken() : (csrfToken || null);
+if (tok) { %>
+  <input type="hidden" name="_csrf" value="<%= tok %>">
+<% } %>

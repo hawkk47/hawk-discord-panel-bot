@@ -1,0 +1,31 @@
+<header class="navbar sticky top-0 z-30 border-b">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl" style="background:linear-gradient(135deg,#6366f1,#22d3ee)"></div>
+      <span class="font-semibold tracking-wide">Discord Panel</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="hidden md:flex items-center gap-2 text-xs text-gray-300/80">
+        <span id="wsPing" class="ui-badge">— ms</span>
+        <span id="uptime" class="ui-badge">—</span>
+        <span id="mem" class="ui-badge">— MB</span>
+      </div>
+      <% if (session?.user) { %>
+        <a href="<%= inviteUrl %>" class="ui-btn ui-btn--primary ripple">+ Ajouter le bot</a>
+        <div class="flex items-center gap-2">
+          <% if (session.user.avatar) { %>
+            <img src="<%= session.user.avatar %>" alt="avatar" class="h-8 w-8 rounded-lg ring-1 ring-white/10">
+          <% } %>
+          <span class="text-sm text-gray-200"><%= session.user.username %></span>
+          <span class="ui-badge"><%= isAdmin ? 'admin' : 'lecteur' %></span>
+        </div>
+        <form method="POST" action="/auth/logout">
+          <%- include('./csrf'); %>
+          <button class="ui-btn ui-btn--ghost ripple">Déconnexion</button>
+        </form>
+      <% } else { %>
+        <a href="/auth/login" class="ui-btn ui-btn--primary ripple">Connexion</a>
+      <% } %>
+    </div>
+  </div>
+</header>

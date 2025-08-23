@@ -1,0 +1,81 @@
+<!-- Header -->
+<div class="mb-6 flex items-center gap-4">
+  <% if (guild.icon) { %>
+    <img src="https://cdn.discordapp.com/icons/<%= guild.id %>/<%= guild.icon %>.png?size=128" class="h-14 w-14 rounded-xl ring-1 ring-white/10">
+  <% } else { %>
+    <div class="h-14 w-14 rounded-xl ring-1 ring-white/10" style="background:rgba(255,255,255,.08)"></div>
+  <% } %>
+  <div>
+    <h1 class="text-2xl font-semibold title"><%= guild.name %></h1>
+    <div class="text-sm text-gray-400 mt-1">ID: <%= guild.id %></div>
+  </div>
+</div>
+
+<div class="grid lg:grid-cols-3 gap-6">
+  <!-- Colonne gauche -->
+  <div class="lg:col-span-2 space-y-6">
+    <div class="ui-card ui-card-lg hover-lift">
+      <h2 class="font-semibold mb-3">Modules</h2>
+      <% const mods = config.modules || {}; %>
+      <div class="grid md:grid-cols-2 gap-3 text-sm">
+        <div class="ui-badge">Moderation : <strong><%= mods.moderation ? 'activé' : 'désactivé' %></strong></div>
+        <div class="ui-badge">Logs : <strong><%= mods.logs ? 'activé' : 'désactivé' %></strong></div>
+        <div class="ui-badge">Welcome : <strong><%= mods.welcome ? 'activé' : 'désactivé' %></strong></div>
+        <div class="ui-badge">Autorole : <strong><%= mods.autorole ? 'activé' : 'désactivé' %></strong></div>
+      </div>
+    </div>
+
+    <div class="ui-card ui-card-lg hover-lift">
+      <h2 class="font-semibold mb-3">Paramètres</h2>
+      <div class="grid md:grid-cols-2 gap-3 text-sm">
+        <div class="ui-badge">Locale : <strong><%= config.settings?.locale || 'fr' %></strong></div>
+        <div class="ui-badge">Purge max : <strong><%= config.settings?.purgeLimitMax || 100 %></strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Colonne droite (actions) -->
+  <div class="space-y-6">
+    <div class="ui-card ui-card-lg hover-lift">
+      <h2 class="font-semibold mb-3">Envoyer un message</h2>
+      <form method="POST" action="/guilds/<%= guild.id %>/actions/send-message" class="space-y-3">
+        <%- include('./partials/csrf'); %>
+
+        <div class="ui-field">
+          <label class="ui-label">Salon</label>
+          <div class="ui-input-wrap">
+            <svg class="ui-input-icon" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H8l-5 5V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.6"/></svg>
+            <input name="channelId" class="ui-input" placeholder="Channel ID">
+          </div>
+          <small class="ui-help">ID numérique du salon cible.</small>
+        </div>
+
+        <div class="ui-field">
+          <label class="ui-label">Message</label>
+          <textarea name="content" class="ui-textarea" placeholder="Votre message..."></textarea>
+        </div>
+
+        <button class="ui-btn ui-btn--primary ripple">Envoyer</button>
+      </form>
+    </div>
+
+    <div class="ui-card ui-card-lg hover-lift">
+      <h2 class="font-semibold mb-3">Modération — Purge</h2>
+      <form method="POST" action="/guilds/<%= guild.id %>/actions/purge" class="space-y-3">
+        <%- include('./partials/csrf'); %>
+        <div class="ui-field">
+          <label class="ui-label">Salon</label>
+          <div class="ui-input-wrap">
+            <svg class="ui-input-icon" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H8l-5 5V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="1.6"/></svg>
+            <input name="channelId" class="ui-input" placeholder="Channel ID">
+          </div>
+        </div>
+        <div class="ui-field">
+          <label class="ui-label">Nombre de messages</label>
+          <input type="number" name="count" min="1" max="<%= config.settings?.purgeLimitMax || 100 %>" value="10" class="ui-input no-icon">
+        </div>
+        <button class="ui-btn ui-btn--danger ripple">Purge</button>
+      </form>
+    </div>
+  </div>
+</div>

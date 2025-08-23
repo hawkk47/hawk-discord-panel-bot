@@ -1,0 +1,36 @@
+{
+  "app": {
+    "title": "Discord Panel",
+    "dashboard": "Tableau de bord",
+    "guilds": "Serveurs",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "latency": "Latence",
+    "uptime": "Uptime",
+    "botStatus": "Statut du bot",
+    "search": "Rechercher..."
+  },
+  "guild": {
+    "title": "Gestion du serveur",
+    "modules": "Modules",
+    "channels": "Salons",
+    "roles": "Rôles",
+    "settings": "Paramètres",
+    "actions": "Actions rapides",
+    "sendMessage": "Envoyer un message",
+    "messageContent": "Contenu du message",
+    "selectChannel": "Sélection du salon",
+    "purge": "Purger",
+    "count": "Nombre",
+    "moderate": "Modération",
+    "userId": "ID utilisateur",
+    "duration": "Durée (min)",
+    "reason": "Raison",
+    "save": "Enregistrer",
+    "submit": "Valider"
+  },
+  "auth": {
+    "needLogin": "Veuillez vous connecter.",
+    "noAccess": "Accès refusé."
+  }
+}

@@ -1,0 +1,9 @@
+<% if (toast.ok || toast.err) { %>
+<div class="toast">
+  <div class="text-sm">
+    <strong><%= toast.err ? 'Erreur' : 'Info' %>:</strong>
+    <%= toast.err || toast.ok %>
+    <button onclick="this.parentElement.parentElement.remove()" class="ml-1 badge">Fermer</button>
+  </div>
+</div>
+<% } %>

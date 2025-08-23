@@ -1,0 +1,36 @@
+{
+  "app": {
+    "title": "Discord Panel",
+    "dashboard": "Dashboard",
+    "guilds": "Guilds",
+    "logout": "Logout",
+    "login": "Login",
+    "latency": "Latency",
+    "uptime": "Uptime",
+    "botStatus": "Bot status",
+    "search": "Search..."
+  },
+  "guild": {
+    "title": "Guild management",
+    "modules": "Modules",
+    "channels": "Channels",
+    "roles": "Roles",
+    "settings": "Settings",
+    "actions": "Quick actions",
+    "sendMessage": "Send message",
+    "messageContent": "Message content",
+    "selectChannel": "Select channel",
+    "purge": "Purge",
+    "count": "Count",
+    "moderate": "Moderate",
+    "userId": "User ID",
+    "duration": "Duration (min)",
+    "reason": "Reason",
+    "save": "Save",
+    "submit": "Submit"
+  },
+  "auth": {
+    "needLogin": "Please sign in.",
+    "noAccess": "Access denied."
+  }
+}

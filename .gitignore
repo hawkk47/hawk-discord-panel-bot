@@ -1,0 +1,10 @@
+node_modules
+.env
+npm-debug.log*
+pids
+*.pid
+*.seed
+dist
+coverage
+.idea
+.DS_Store

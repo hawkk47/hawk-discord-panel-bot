@@ -1,0 +1,47 @@
+<section class="mb-6">
+  <h1 class="text-2xl font-semibold title">Serveurs</h1>
+  <p class="text-sm text-gray-400 mt-2">Serveurs où tu as “Manage Guild” et où le bot est présent.</p>
+</section>
+
+<div class="ui-card ui-card-lg mb-4">
+  <div class="flex items-center justify-between gap-3">
+    <div class="ui-input-wrap w-72">
+      <svg class="ui-input-icon" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input id="search" type="text" placeholder="Rechercher..." class="ui-input" />
+    </div>
+    <span class="ui-badge">Total: <%= manageable.length %></span>
+  </div>
+</div>
+
+<div id="guilds" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <% for (const g of manageable) { %>
+    <a href="/guilds/<%= g.id %>" class="ui-card ui-card-lg hover-lift">
+      <div class="flex items-center gap-3">
+        <% if (g.icon) { %>
+          <img src="https://cdn.discordapp.com/icons/<%= g.id %>/<%= g.icon %>.png?size=128" class="h-12 w-12 rounded-xl ring-1 ring-white/10">
+        <% } else { %>
+          <div class="h-12 w-12 rounded-xl ring-1 ring-white/10" style="background:rgba(255,255,255,.08)"></div>
+        <% } %>
+        <div>
+          <div class="font-semibold"><%= g.name %></div>
+          <div class="text-xs text-gray-400">ID: <%= g.id %></div>
+        </div>
+      </div>
+    </a>
+  <% } %>
+</div>
+
+<script>
+  (function(){
+    const input = document.getElementById("search");
+    const wrap  = document.getElementById("guilds");
+    if (!input || !wrap) return;
+    input.addEventListener("input", () => {
+      const q = input.value.toLowerCase();
+      Array.from(wrap.children).forEach(card => {
+        const text = card.textContent.toLowerCase();
+        card.style.display = text.includes(q) ? "" : "none";
+      });
+    });
+  })();
+</script>
