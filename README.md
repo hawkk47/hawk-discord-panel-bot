@@ -62,17 +62,13 @@ Un projet **open-source** combinant **bot Discord (discord.js v14)** et **panel 
 ### 1️⃣ Cloner le repo
 ```bash
 git clone https://github.com/hawkk47/hawk-discord-panel-bot.git
-cd discord-panel-bot
+cd hawk-discord-panel-bot
+```
 
 ### 4️⃣ Lancer le projet
+```bash
 Mode dev (avec nodemon + hot reload)
 npm run dev
+```
 
-Mode production
-npm start
-
-Enregistrer les commandes (au premier lancement)
-npm run register:commands
-
-
-Vous pouvez proposer des améliorations (:
+# Vous pouvez proposer des améliorations (:
