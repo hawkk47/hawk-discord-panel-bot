@@ -13,9 +13,7 @@ Un projet **open-source** combinant **bot Discord (discord.js v14)** et **panel 
 
 ## 🚀 Démo (Aperçu UI)
 
-*(ajoute une capture d’écran du dashboard ici)*
-
-![Dashboard Preview](docs/screenshot_dashboard.png)
+![Dashboard Preview](/screenshot_dashboard.png)
 
 ---
 
