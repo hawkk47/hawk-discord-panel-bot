@@ -23,7 +23,7 @@ Si tu découvres une faille de sécurité dans ce projet :
 
 2. **Contacte le mainteneur en privé** :  
    - Ouvre une **[GitHub Security Advisory](https://github.com/hawkk47/hawk-discord-panel-bot/security/advisories/new)**  
-   - ou envoie un mail à : **hawkk47@proton.me** (exemple, adapte avec ton vrai mail si tu veux)
+   - ou envoie un mail à : **hawk@hawk-network.ovh**
 
 3. Fournis un maximum de détails :  
    - Version utilisée  
