@@ -1,7 +1,7 @@
 {
   "name": "discord-panel-bot",
   "version": "1.1.0",
-  "description": "Discord bot + web panel (Express/EJS/Tailwind CDN) with MongoDB, OAuth2 Discord, CSRF, Helmet. No Docker. Single .env.",
+  "description": "  panel discord web",
   "license": "MIT",
   "type": "commonjs",
   "engines": {
